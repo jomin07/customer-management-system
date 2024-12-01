@@ -11,7 +11,7 @@ const CustomersPage = () => {
   const [filterField, setFilterField] = useState("");
   const [filterValue, setFilterValue] = useState("");
 
-  const { customers, totalPages, loading } = useFetchCustomers(
+  const { customers, totalPages, loading, error } = useFetchCustomers(
     currentPage,
     search,
     filterField,
@@ -30,6 +30,11 @@ const CustomersPage = () => {
         filterValue={filterValue}
         setFilterValue={setFilterValue}
       />
+      {error && (
+        <div className="text-red-500 text-center py-2">
+          Failed to load customers: {error}
+        </div>
+      )}
       <CustomersTable customers={customers} loading={loading} />
       <PaginationControls
         currentPage={currentPage}

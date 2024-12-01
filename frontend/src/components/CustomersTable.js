@@ -1,4 +1,4 @@
-const CustomersTable = ({ customers, loading }) => {
+const CustomersTable = ({ customers = [], loading }) => {
   return (
     <div className="overflow-x-auto">
       <table className="table-auto w-full border-collapse bg-white rounded-lg shadow-md overflow-hidden">
